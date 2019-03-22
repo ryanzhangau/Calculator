@@ -1,21 +1,28 @@
 import React, { Component } from "react";
 import Button from "./components/Button";
+import Display from "./components/Display";
+import { connect } from "react-redux";
+import { typing, clear, calc } from "./store/calcActions";
 import "./styles/calculator.scss";
 
 class Calculator extends Component {
-  click(type, label) {
-    console.log(type, label);
-  }
-  clear() {
-    // TODO clear input
-  }
+  click = (type, label) => {
+    this.props.typing({ type, label });
+  };
+
   render() {
     return (
       <div className="calculator">
-        <input className="display" type="text" />
-        <input className="result" type="text" />
-
-        <Button label="C" type="clear" onClick={this.clear} />
+        <Display
+          display={this.props.calcReducer.display}
+          result={this.props.calcReducer.result}
+        />
+        <Button
+          className="clear"
+          label="C"
+          type="clear"
+          onClick={this.props.clear}
+        />
         <Button label="√" type="operation" onClick={this.click} />
         <Button label="^" type="operation" onClick={this.click} />
         <Button label="/" type="operation" onClick={this.click} />
@@ -35,12 +42,32 @@ class Calculator extends Component {
         <Button label="3" type="number" onClick={this.click} />
         <Button label="+" type="operation" onClick={this.click} />
 
-        <Button label="." type="number" onClick={this.click} />
+        <Button label="&middot;" type="number" onClick={this.click} />
         <Button label="0" type="number" onClick={this.click} />
-        <Button className="equal" label="=" type="equal" onClick={this.click} />
+        <Button
+          className="equal"
+          label="="
+          type="equal"
+          onClick={this.props.calc}
+        />
       </div>
     );
   }
 }
 
-export default Calculator;
+const mapStateToProps = state => {
+  return { calcReducer: state.calcReducer };
+};
+
+const mapDispatchToProps = dispach => {
+  return {
+    typing: number => dispach(typing(number)),
+    clear: () => dispach(clear()),
+    calc: () => dispach(calc())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Calculator);
