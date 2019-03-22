@@ -23,26 +23,57 @@ class Calculator extends Component {
           type="clear"
           onClick={this.props.clear}
         />
-        <Button label="√" type="operation" onClick={this.click} />
-        <Button label="^" type="operation" onClick={this.click} />
-        <Button label="/" type="operation" onClick={this.click} />
+        <Button
+          className="operation"
+          label="√"
+          type="operation"
+          onClick={this.click}
+        />
+        <Button
+          className="operation"
+          label="^"
+          type="operation"
+          onClick={this.click}
+        />
+        <Button
+          className="operation"
+          label="/"
+          type="operation"
+          onClick={this.click}
+        />
 
         <Button label="7" type="number" onClick={this.click} />
         <Button label="8" type="number" onClick={this.click} />
         <Button label="9" type="number" onClick={this.click} />
-        <Button label="*" type="operation" proity={1} onClick={this.click} />
+        <Button
+          className="operation"
+          label="*"
+          type="operation"
+          proity={1}
+          onClick={this.click}
+        />
 
         <Button label="4" type="number" onClick={this.click} />
         <Button label="5" type="number" onClick={this.click} />
         <Button label="6" type="number" onClick={this.click} />
-        <Button label="-" type="operation" onClick={this.click} />
+        <Button
+          className="operation"
+          label="-"
+          type="operation"
+          onClick={this.click}
+        />
 
         <Button label="1" type="number" onClick={this.click} />
         <Button label="2" type="number" onClick={this.click} />
         <Button label="3" type="number" onClick={this.click} />
-        <Button label="+" type="operation" onClick={this.click} />
+        <Button
+          className="operation"
+          label="+"
+          type="operation"
+          onClick={this.click}
+        />
 
-        <Button label="&middot;" type="number" onClick={this.click} />
+        <Button label="." type="number" onClick={this.click} />
         <Button label="0" type="number" onClick={this.click} />
         <Button
           className="equal"
