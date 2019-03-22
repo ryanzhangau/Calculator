@@ -2,6 +2,7 @@ button {
   font-size: 30px;
   background: #eeeeee;
   border-radius: 50%;
+  border: 1px solid transparent;
   &.equal {
     border-radius: 50px;
     background-color: orange;
@@ -9,9 +10,9 @@ button {
     grid-row: 6;
     grid-column: 3 / span 2;
   }
+  &.operation,
   &.clear {
-    background-color: #4885f4;
-    color: white;
+    color: #4885f4;
   }
   &:focus {
     outline: none;
