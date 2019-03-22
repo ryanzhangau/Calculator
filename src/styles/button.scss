@@ -1,3 +1,19 @@
 button {
   font-size: 30px;
+  background: #eeeeee;
+  border-radius: 50%;
+  &.equal {
+    border-radius: 50px;
+    background-color: orange;
+    color: white;
+    grid-row: 6;
+    grid-column: 3 / span 2;
+  }
+  &.clear {
+    background-color: #4885f4;
+    color: white;
+  }
+  &:focus {
+    outline: none;
+  }
 }
