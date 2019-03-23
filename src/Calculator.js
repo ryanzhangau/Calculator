@@ -24,21 +24,21 @@ class Calculator extends Component {
           onClick={this.props.clear}
         />
         <Button
-          className="operation"
+          className="operator"
           label="√"
-          type="operation"
+          type="self-calc"
           onClick={this.click}
         />
         <Button
-          className="operation"
+          className="operator"
           label="^"
-          type="operation"
+          type="self-calc"
           onClick={this.click}
         />
         <Button
-          className="operation"
+          className="operator"
           label="/"
-          type="operation"
+          type="operator"
           onClick={this.click}
         />
 
@@ -46,9 +46,9 @@ class Calculator extends Component {
         <Button label="8" type="number" onClick={this.click} />
         <Button label="9" type="number" onClick={this.click} />
         <Button
-          className="operation"
+          className="operator"
           label="*"
-          type="operation"
+          type="operator"
           proity={1}
           onClick={this.click}
         />
@@ -57,9 +57,9 @@ class Calculator extends Component {
         <Button label="5" type="number" onClick={this.click} />
         <Button label="6" type="number" onClick={this.click} />
         <Button
-          className="operation"
+          className="operator"
           label="-"
-          type="operation"
+          type="operator"
           onClick={this.click}
         />
 
@@ -67,9 +67,9 @@ class Calculator extends Component {
         <Button label="2" type="number" onClick={this.click} />
         <Button label="3" type="number" onClick={this.click} />
         <Button
-          className="operation"
+          className="operator"
           label="+"
-          type="operation"
+          type="operator"
           onClick={this.click}
         />
 
