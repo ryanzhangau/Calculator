@@ -57,7 +57,7 @@ const calculate = (state = initState, action) => {
         newState.formula = newState.formula.concat(
           formularEndHelper(newState.opHolder)
         );
-      if (!newState.calculated && newState.result != "Bad Expression")
+      if (!newState.calculated && newState.result !== "Bad Expression")
         display = calcHelper(newState.formula);
       return {
         ...newState,
