@@ -16,7 +16,7 @@ export const formularEndHelper = operator => {
   return `${MATH_END_MAP[operator]}`;
 };
 
-export const calcHelper = formula => {
+export const doCalc = formula => {
   let res = "";
   try {
     res = eval(formula).toString();
