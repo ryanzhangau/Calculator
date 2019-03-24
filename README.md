@@ -40,4 +40,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ### `Square by N and Root Square`
 
 press ^ or √ and followed by the number needs to be calculated.
+
 For example: ^9 = 81; √4 = 2;
