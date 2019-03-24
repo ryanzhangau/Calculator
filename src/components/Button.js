@@ -5,7 +5,11 @@ import "../styles/button.scss";
 const Button = props => {
   const { className, label, type, onClick } = props;
   return (
-    <button className={className} onClick={() => onClick(type, label)}>
+    <button
+      aria-pressed="false"
+      className={className}
+      onClick={() => onClick(type, label)}
+    >
       {label}
     </button>
   );
