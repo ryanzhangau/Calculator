@@ -5,10 +5,14 @@ import "../styles/display.scss";
 const Display = props => {
   const { display, result } = props;
   return (
-    <div className="display">
-      <div className="formula">{display}</div>
-      <div className="result">{result}</div>
-    </div>
+    <section className="display">
+      <div className="formula" aria-label={display}>
+        {display}
+      </div>
+      <div className="result" aria-label={result}>
+        {result}
+      </div>
+    </section>
   );
 };
 
