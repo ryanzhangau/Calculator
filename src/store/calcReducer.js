@@ -1,11 +1,10 @@
-import { calcHelper, formulaStartHelper, formularEndHelper } from "./helper";
+import { doCalc, formulaStartHelper, formularEndHelper } from "./helper";
 const initState = {
   display: "",
   formula: "",
   result: "",
   calculated: false,
-  opHolder: "",
-  numHolder: ""
+  opHolder: ""
 };
 
 const calculate = (state = initState, action) => {
@@ -16,6 +15,7 @@ const calculate = (state = initState, action) => {
       if (newState.calculated && action.payload.type !== "operator") {
         newState.calculated = false;
         newState.display = action.payload.label;
+        newState.formula = "";
       }
 
       if (action.payload.type === "self-calc") {
@@ -24,6 +24,7 @@ const calculate = (state = initState, action) => {
         newState.formula = newState.formula.concat(selfCalc);
       }
       if (action.payload.type === "operator") {
+        if (newState.calculated) newState.calculated = false;
         if (newState.opHolder !== "") {
           newState.formula = newState.formula.concat(
             formularEndHelper(newState.opHolder)
@@ -33,14 +34,13 @@ const calculate = (state = initState, action) => {
       }
       if (action.payload.type !== "self-calc")
         newState.formula = newState.formula.concat(action.payload.label);
-      console.log(newState.formula);
       if (
         !/^[0-9]+[.]?[0-9]*$/.test(newState.formula) &&
         newState.formula !== "" &&
         action.payload.type !== "operator" &&
         newState.opHolder === ""
       )
-        newState.result = calcHelper(newState.formula);
+        newState.result = doCalc(newState.formula);
       return newState;
     case "CLEAR":
       return {
@@ -48,8 +48,7 @@ const calculate = (state = initState, action) => {
         formula: "",
         result: "",
         calculated: false,
-        opHolder: "",
-        numHolder: ""
+        opHolder: ""
       };
     case "CALC":
       let display = "";
@@ -58,15 +57,13 @@ const calculate = (state = initState, action) => {
           formularEndHelper(newState.opHolder)
         );
       if (!newState.calculated && newState.result !== "Bad Expression")
-        display = calcHelper(newState.formula);
+        display = doCalc(newState.formula);
       return {
         ...newState,
         display,
-        formula: "",
         result: "",
         calculated: true,
-        opHolder: "",
-        numHolder: ""
+        opHolder: ""
       };
     default:
       return state;
