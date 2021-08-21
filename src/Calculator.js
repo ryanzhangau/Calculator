@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import "./styles/calculator.scss";
 
+// modify this line
 class Calculator extends Component {
   render() {
     return (
